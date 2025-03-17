@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package micropostpb.v1;
+
+option go_package = "github.com/gs1068/modular-monolith-sample/micropost;micropostpb";
+
+message Micropost {
+  int64 id = 1;
+  int64 user_id = 2;
+  string content = 3;
+}
+
+service MicropostService {
+  rpc GetMicropostByUserID(GetMicropostByUserIDRequest) returns (GetMicropostByUserIDResponse);
+}
+
+message GetMicropostByUserIDRequest {
+  int64 user_id = 1;
+}
+
+message GetMicropostByUserIDResponse {
+  repeated Micropost microposts = 1;
+}

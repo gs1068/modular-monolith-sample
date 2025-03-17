@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package userpb.v1;
+
+option go_package = "github.com/gs1068/modular-monolith-sample/user;userpb";
+
+message User {
+  int64 id = 1;
+  string email = 2;
+  string name = 3;
+}
+
+service UserService {
+  rpc GetUserByID(GetUserByIDRequest) returns (GetUserByIDResponse);
+}
+
+message GetUserByIDRequest {
+  int64 user_id = 1;
+}
+
+message GetUserByIDResponse {
+  User user = 1;
+}
