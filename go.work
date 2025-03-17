@@ -3,4 +3,5 @@ go 1.24.0
 use (
 	.
 	./modules/user/v1
+	./modules/micropost/v1
 )
